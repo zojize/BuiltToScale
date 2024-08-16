@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=4 uid="uid://rfhel7wuwoes"]
+
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_tg2j1"]
+[ext_resource type="TileSet" uid="uid://dwhdnwbsy0qml" path="res://assets/sprites/world_tileset.tres" id="2_j84it"]
+[ext_resource type="PackedScene" uid="uid://yypm387epj3w" path="res://scenes/player.tscn" id="3_7cfie"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_tg2j1")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA=")
+tile_set = ExtResource("2_j84it")
+
+[node name="Player" parent="." instance=ExtResource("3_7cfie")]
+position = Vector2(26, -18)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-26, 18)
+zoom = Vector2(4, 4)
