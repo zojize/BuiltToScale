@@ -38,7 +38,7 @@ func _process(delta):
 	var scale_x = float(curr_screen_size.x) / float(initial_screen_size.x)
 	var scale_y = float(curr_screen_size.y) / float(initial_screen_size.y)
 	print("scale_x: ", scale_x, ", scale_y: ", scale_y)
-	scale_around_origin(tile_map_layer, player.position, Vector2(scale_x * delta, scale_y * delta))
+	scale_around_origin(tile_map_layer, player.position, Vector2(scale_x, scale_y))
 	#print()
 	
 	pass
