@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bywm55glps0wn"]
+
+[ext_resource type="Script" path="res://scripts/scalable_block.gd" id="1_t780v"]
+[ext_resource type="Shader" path="res://shaders/test.gdshader" id="2_rsydd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xgi7h"]
+shader = ExtResource("2_rsydd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubmcd"]
+size = Vector2(10, 10)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_v8dr8"]
+
+[node name="ScalableBlock" type="StaticBody2D"]
+scale = Vector2(1.00276, 1)
+script = ExtResource("1_t780v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("ShaderMaterial_xgi7h")
+shape = SubResource("RectangleShape2D_ubmcd")
+debug_color = Color(0.976711, 0, 0.409753, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+scale = Vector2(10, 10)
+texture = SubResource("CanvasTexture_v8dr8")
+
+[connection signal="tree_entered" from="CollisionShape2D" to="." method="_on_collision_shape_2d_tree_entered"]
